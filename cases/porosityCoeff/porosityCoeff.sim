@@ -1,0 +1,422 @@
+summary
+{
+}
+run
+{
+	parallel	false;
+	processors	4;
+}
+Graphics3D
+{
+	MeshParameters
+	{
+		default
+		{
+			boundaries
+			{
+				color	(155 50 0);
+				transparency	0.0;
+				faceHide	false;
+				edgesHide	false;
+			}
+			inlet
+			{
+				color	(155 180 50);
+				transparency	0.0;
+				faceHide	false;
+				edgesHide	false;
+			}
+			outlet
+			{
+				color	(51 255 0);
+				transparency	0.0;
+				faceHide	false;
+				edgesHide	false;
+			}
+		}
+	}
+	CellZonesParameters
+	{
+		box_1
+		{
+			faceHide	false;
+			edgesHide	false;
+		}
+	}
+	ProbeParameters
+	{
+	}
+	View
+	{
+		SavedViews
+		{
+		}
+	}
+	PostprocessingParameters
+	{
+		ActiveTime	0;
+		ActiveField	Solid;
+	}
+	GeometryParameters
+	{
+		simulationVolume
+		{
+			color	(112 128 144);
+			transparency	0.0;
+			hide	true;
+		}
+		box_1
+		{
+			color	(112 128 144);
+			transparency	0.0;
+			hide	false;
+		}
+	}
+	PostprocessingPlots
+	{
+		plot_0
+		{
+			key	Residual;
+			title	;
+			isXGridVisible	true;
+			isYGridVisible	true;
+			xLabel	Time;
+			yLabel	Residuum;
+			series_0
+			{
+				key	Ux;
+				label	Ux;
+				color	(0 0 255);
+				isVisible	true;
+				thickness	1;
+				representation	Solid;
+			}
+			series_1
+			{
+				key	Uy;
+				label	Uy;
+				color	(255 0 0);
+				isVisible	true;
+				thickness	1;
+				representation	Solid;
+			}
+			series_2
+			{
+				key	Uz;
+				label	Uz;
+				color	(0 255 0);
+				isVisible	true;
+				thickness	1;
+				representation	Solid;
+			}
+			series_3
+			{
+				key	p;
+				label	p;
+				color	(0 0 0);
+				isVisible	true;
+				thickness	1;
+				representation	Solid;
+			}
+			series_4
+			{
+				key	p_rgh;
+				label	p_rgh;
+				color	(0 0 0);
+				isVisible	true;
+				thickness	1;
+				representation	Solid;
+			}
+			series_5
+			{
+				key	omega;
+				label	omega;
+				color	(255 200 0);
+				isVisible	true;
+				thickness	1;
+				representation	Solid;
+			}
+			series_6
+			{
+				key	epsilon;
+				label	epsilon;
+				color	(255 200 0);
+				isVisible	true;
+				thickness	1;
+				representation	Solid;
+			}
+			series_7
+			{
+				key	k;
+				label	k;
+				color	(0 255 255);
+				isVisible	true;
+				thickness	1;
+				representation	Solid;
+			}
+		}
+	}
+	SlicesParameters
+	{
+	}
+}
+initialization
+{
+	potentialInit	false;
+	nNonOrthogonalCorrectors	8;
+	mapInit	false;
+}
+regionInit
+{
+	patchInitializationMode	onInitialization;
+}
+regionProperties
+{
+	default
+	{
+		bafflesSplit	false;
+		cellZones
+		{
+		}
+	}
+}
+probes
+{
+}
+parameters
+{
+}
+primitiveMesh
+{
+	type	box;
+	box
+	{
+		min	(-0.505 -0.505 -0.505);
+		max	(0.505 0.505 0.505);
+		division	(40 40 40);
+		grading	(1 1 1);
+		boundaries
+		{
+			x_minus
+			{
+				name	inlet;
+				type	patch;
+			}
+			x_plus
+			{
+				name	outlet;
+				type	patch;
+			}
+			y_minus
+			{
+				name	boundaries;
+				type	patch;
+			}
+			y_plus
+			{
+				name	boundaries;
+				type	patch;
+			}
+			z_minus
+			{
+				name	boundaries;
+				type	patch;
+			}
+			z_plus
+			{
+				name	boundaries;
+				type	patch;
+			}
+		}
+	}
+	cylinder
+	{
+		axis	X;
+		origin	0;
+		radius	1;
+		length	1;
+		radialFraction	0.5;
+		radialDivision	10;
+		radialGrading	1;
+		axialDivision	10;
+		axialGrading	1;
+		circumferentialDivision	10;
+		boundaries
+		{
+			inlet
+			{
+				name	boundaries;
+				type	patch;
+			}
+			outlet
+			{
+				name	boundaries;
+				type	patch;
+			}
+			cylinder
+			{
+				name	boundaries;
+				type	patch;
+			}
+		}
+	}
+	plate
+	{
+		minx	-0.5;
+		miny	-0.5;
+		maxx	0.5;
+		maxy	0.5;
+		divisionx	10;
+		divisiony	10;
+		gradingx	1;
+		gradingy	1;
+		boundaries
+		{
+			x_minus
+			{
+				name	boundaries;
+				type	patch;
+			}
+			x_plus
+			{
+				name	boundaries;
+				type	patch;
+			}
+			y_minus
+			{
+				name	boundaries;
+				type	patch;
+			}
+			y_plus
+			{
+				name	boundaries;
+				type	patch;
+			}
+		}
+	}
+	wedge
+	{
+		origin	0;
+		radius	1;
+		length	1;
+		radialDivision	10;
+		radialGrading	1;
+		axialDivision	10;
+		axialGrading	1;
+		boundaries
+		{
+			inlet
+			{
+				name	boundaries;
+				type	patch;
+			}
+			outlet
+			{
+				name	boundaries;
+				type	patch;
+			}
+			cylinder
+			{
+				name	boundaries;
+				type	patch;
+			}
+		}
+	}
+}
+inputs
+{
+	default
+	{
+	}
+}
+meshing
+{
+	parallel	false;
+	processors	4;
+	meshingStages
+	{
+		Base	true;
+		Mesh	true;
+		Layers	true;
+	}
+}
+geometry
+{
+	simulationVolume
+	{
+		type	searchableBox;
+		max	(0.5 0.5 0.5);
+		size	(1 1 1);
+		min	(-0.5 -0.5 -0.5);
+	}
+	box_1
+	{
+		type	searchableBox;
+		max	(0.25 0.25 0.25);
+		size	(0.5 0.5 0.5);
+		min	(-0.25 -0.25 -0.25);
+	}
+}
+materials
+{
+	regions
+	{
+	}
+}
+fieldInputs
+{
+	default
+	{
+		p
+		{
+			internalField	uniform 0;
+			boundaryField
+			{
+				inlet
+				{
+					type	zeroGradient;
+				}
+				outlet
+				{
+					type	zeroGradient;
+				}
+				boundaries
+				{
+					type	freestreamPressure;
+					freestreamValue	"uniform 0";
+				}
+			}
+		}
+		U
+		{
+			internalField	uniform (0 0 0);
+			boundaryField
+			{
+				inlet
+				{
+					type	surfaceNormalFixedValue;
+					refValue	"uniform -1.0";
+				}
+				outlet
+				{
+					type	zeroGradient;
+				}
+				boundaries
+				{
+					type	freestreamVelocity;
+					freestreamValue	"uniform (1 0 0)";
+				}
+			}
+		}
+	}
+}
+mesh
+{
+}
+application
+{
+	mode	normal;
+}
+slices
+{
+}
