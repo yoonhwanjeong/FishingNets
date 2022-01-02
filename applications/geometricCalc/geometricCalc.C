@@ -82,7 +82,6 @@ int main(int argc, char *argv[])
             cellZoneVol += mesh.V()[cellsZone[cI]];
         }
 
-        //const labelList& cellLabels = mesh_.cellZones()[zoneI];
         outsideFaces = false;
 
         // mark all faces that are NOT internal to the cellZone:
