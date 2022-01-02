@@ -1,0 +1,36 @@
+FoamFile
+{
+	version	2.0;
+	format	ascii;
+	class	dictionary;
+	location	"system";
+	object	fvOptions;
+}porosityInbox_1
+{
+	active	true;
+	type	explicitPorositySource;
+	explicitPorositySourceCoeffs
+	{
+		type	DarcyForchheimer;
+		DarcyForchheimerCoeffs
+		{
+			d	(0.0 0.0 0.0);
+			f	(5.880397e-01 1.723565e-01 1.723565e-01);
+			coordinateSystem
+			{
+				type	cartesian;
+				origin	(0.0 0.0 0.0);
+				coordinateRotation
+				{
+					type	axesRotation;
+					e1	( 1.000000e+00 0.000000e+00 0.000000e+00 );
+					e2	( 0.000000e+00 1.000000e+00 0.000000e+00 );
+				}
+			}
+			rho	rho;
+			mu	mu;
+		}
+		selectionMode	cellZone;
+		cellZone	box_1;
+	}
+}
