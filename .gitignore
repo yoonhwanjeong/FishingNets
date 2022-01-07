@@ -34,3 +34,6 @@
 /.idea/
 /solver/Make/*/
 /cmake-build-debug/
+
+# Applications
+/applications/*/Make/*/
