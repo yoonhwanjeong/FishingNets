@@ -1,0 +1,15 @@
+{
+  "file-series-version" : "1.0",
+  "files" : [
+    { "name" : "box_1_0.vtm", "time" : 0 },
+    { "name" : "box_1_1.vtm", "time" : 1 },
+    { "name" : "box_1_10.vtm", "time" : 10 },
+    { "name" : "box_1_20.vtm", "time" : 20 },
+    { "name" : "box_1_30.vtm", "time" : 30 },
+    { "name" : "box_1_40.vtm", "time" : 40 },
+    { "name" : "box_1_50.vtm", "time" : 50 },
+    { "name" : "box_1_60.vtm", "time" : 60 },
+    { "name" : "box_1_61.vtm", "time" : 61 },
+    { "name" : "box_1_67.vtm", "time" : 67 }
+  ]
+}

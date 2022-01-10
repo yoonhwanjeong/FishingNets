@@ -28,6 +28,7 @@ Application
 
 Description
     Inspired by: https://www.cfd-online.com/Forums/openfoam-programming-development/69661-how-compute-cellzone-volume.html
+    and https://www.cfd-online.com/Forums/openfoam-programming-development/85049-read-properties-per-component-input-file-dictionary.html
 
 \*---------------------------------------------------------------------------*/
 
@@ -43,13 +44,25 @@ int main(int argc, char *argv[])
 {
     #include "postProcess.H"
 
-    argList::validArgs.append("projDirX");
-    argList::validArgs.append("projDirY");
-    argList::validArgs.append("projDirZ");
+    //argList::validArgs.append("projDirX");
+    //argList::validArgs.append("projDirY");
+    //argList::validArgs.append("projDirZ");
 
     #include "setRootCaseLists.H"
     #include "createTime.H"
     #include "createMesh.H"
+
+    IOdictionary ioDictObj
+    (
+    IOobject
+    (
+        "geometricCalcDict", /// The dictionary file
+        runTime.constant(), /// Relative path (from case root)
+        runTime, /// The Time object
+        IOobject::MUST_READ, /// Read for constructor
+        IOobject::NO_WRITE /// Foam::Time writeControl
+    )
+    );
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
     const cellList& cells  = mesh.cells();
@@ -57,16 +70,12 @@ int main(int argc, char *argv[])
 
     List<bool> outsideFaces(faceAreas.size(), false);
 
-    const scalar x(readScalar(IStringStream(args.args()[1])()));
-    const scalar y(readScalar(IStringStream(args.args()[2])()));
-    const scalar z(readScalar(IStringStream(args.args()[3])()));
-
-    vector projDir = {x,y,z};
-    projDir.normalise();
-    Info << projDir << endl;
+    //const scalar x(readScalar(IStringStream(args.args()[1])()));
+    //const scalar y(readScalar(IStringStream(args.args()[2])()));
+    //const scalar z(readScalar(IStringStream(args.args()[3])()));
 
     Info << "Calculating zone volumes and areas:" << endl;
-    Info << "Area projection direction along " << projDir << nl << endl;
+    //Info << "Area projection direction along " << projDir << nl << endl;
 
     forAll(mesh.cellZones(), cellZoneID)
     {
@@ -76,12 +85,18 @@ int main(int argc, char *argv[])
         const cellZoneMesh &zoneMesh = zone.zoneMesh();
         const labelList &cellsZone = zoneMesh[cellZoneID];
 
+        //Read geometricCalcDict
+        vector projDir (vector(ioDictObj.subDict(zoneName).lookup("e1")));
+        projDir.normalise();
+
+        //Calculate volume
         scalar cellZoneVol(0);
         forAll(cellsZone, cI)
         {
             cellZoneVol += mesh.V()[cellsZone[cI]];
         }
 
+        //const labelList& cellLabels = mesh_.cellZones()[zoneI];
         outsideFaces = false;
 
         // mark all faces that are NOT internal to the cellZone:
@@ -115,7 +130,7 @@ int main(int argc, char *argv[])
             if (outsideFaces[faceI])
             {
                 vector faceNormal = mesh.Sf()[faceI]/mesh.magSf()[faceI]; //Normalized
-                scalar projFace = faceNormal & projDir; //Inner product 
+                scalar projFace = mag(faceNormal & projDir); //Inner product 
                 zoneOutsideArea += mag(faceAreas[faceI]);
                 zouneOutsideProjectedArea += mag(faceAreas[faceI])*projFace;
                 zoneOutsideNFaces++;
@@ -132,6 +147,8 @@ int main(int argc, char *argv[])
         << " area = " << zoneOutsideArea
         << "\\" 
         << " projected area = " << zouneOutsideProjectedArea
+        << "\\" 
+        << " proj Dir = " << projDir
         << "\\" 
         << endl;
     }

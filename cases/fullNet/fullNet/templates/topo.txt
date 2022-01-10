@@ -1,0 +1,17 @@
+    {
+        name    ZONENAME;
+        type    cellZoneSet;
+        action    new;
+        source    surfaceToCell;
+        sourceInfo
+        {
+            file    "constant/triSurface/STL_Files/STLNAME.stl";
+            //useSurfaceOrientation    true;
+            outsidePoints    ();
+            includeInside    false;
+            includeOutside    false;
+            includeCut    true;
+            nearDistance    -1.0;
+            curvature    -100.0;
+        }
+    }

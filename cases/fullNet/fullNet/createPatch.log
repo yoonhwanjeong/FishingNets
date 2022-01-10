@@ -1,0 +1,490 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2106                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f815a12b-20210902 OPENFOAM=2106
+Arch   : "LSB;label=32;scalar=64"
+Exec   : createPatch -overwrite
+Date   : Jan 02 2022
+Time   : 15:50:13
+Host   : ServaasComputer
+PID    : 12276
+I/O    : uncollated
+Case   : /home/servaas/OpenFOAM/servaas-v2106/porosityCoeff/porosityCoeff
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    fileModificationSkew 0;
+
+    maxMasterFileBufferSize 1e+09;
+
+    maxThreadFileBufferSize 1e+09;
+
+    mpiBufferSize (unregistered)
+Create polyMesh for time = 0
+
+Reading "system/createPatchDict"
+
+
+Doing topology modification to order faces.
+
+Not synchronising points.
+
+Removing patches with no faces in them.
+
+No patches removed.
+Writing repatched mesh to 0
+
+End
+
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2106                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f815a12b-20210902 OPENFOAM=2106
+Arch   : "LSB;label=32;scalar=64"
+Exec   : createPatch -overwrite
+Date   : Jan 02 2022
+Time   : 15:51:03
+Host   : ServaasComputer
+PID    : 12342
+I/O    : uncollated
+Case   : /home/servaas/OpenFOAM/servaas-v2106/porosityCoeff/porosityCoeff
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    fileModificationSkew 0;
+
+    maxMasterFileBufferSize 1e+09;
+
+    maxThreadFileBufferSize 1e+09;
+
+    mpiBufferSize (unregistered)
+Create polyMesh for time = 0
+
+Reading "system/createPatchDict"
+
+
+Doing topology modification to order faces.
+
+Not synchronising points.
+
+Removing patches with no faces in them.
+
+No patches removed.
+Writing repatched mesh to 0
+
+End
+
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2106                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f815a12b-20210902 OPENFOAM=2106
+Arch   : "LSB;label=32;scalar=64"
+Exec   : createPatch -overwrite
+Date   : Jan 02 2022
+Time   : 15:51:27
+Host   : ServaasComputer
+PID    : 12433
+I/O    : uncollated
+Case   : /home/servaas/OpenFOAM/servaas-v2106/porosityCoeff/porosityCoeff
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    fileModificationSkew 0;
+
+    maxMasterFileBufferSize 1e+09;
+
+    maxThreadFileBufferSize 1e+09;
+
+    mpiBufferSize (unregistered)
+Create polyMesh for time = 0
+
+Reading "system/createPatchDict"
+
+
+Doing topology modification to order faces.
+
+Not synchronising points.
+
+Removing patches with no faces in them.
+
+No patches removed.
+Writing repatched mesh to 0
+
+End
+
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2106                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f815a12b-20210902 OPENFOAM=2106
+Arch   : "LSB;label=32;scalar=64"
+Exec   : createPatch -overwrite
+Date   : Jan 02 2022
+Time   : 15:52:05
+Host   : ServaasComputer
+PID    : 12520
+I/O    : uncollated
+Case   : /home/servaas/OpenFOAM/servaas-v2106/porosityCoeff/porosityCoeff
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    fileModificationSkew 0;
+
+    maxMasterFileBufferSize 1e+09;
+
+    maxThreadFileBufferSize 1e+09;
+
+    mpiBufferSize (unregistered)
+Create polyMesh for time = 0
+
+Reading "system/createPatchDict"
+
+
+Doing topology modification to order faces.
+
+Not synchronising points.
+
+Removing patches with no faces in them.
+
+No patches removed.
+Writing repatched mesh to 0
+
+End
+
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2106                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f815a12b-20210902 OPENFOAM=2106
+Arch   : "LSB;label=32;scalar=64"
+Exec   : createPatch -overwrite
+Date   : Jan 02 2022
+Time   : 15:53:33
+Host   : ServaasComputer
+PID    : 12685
+I/O    : uncollated
+Case   : /home/servaas/OpenFOAM/servaas-v2106/porosityCoeff/porosityCoeff
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    fileModificationSkew 0;
+
+    maxMasterFileBufferSize 1e+09;
+
+    maxThreadFileBufferSize 1e+09;
+
+    mpiBufferSize (unregistered)
+Create polyMesh for time = 0
+
+Reading "system/createPatchDict"
+
+
+Doing topology modification to order faces.
+
+Not synchronising points.
+
+Removing patches with no faces in them.
+
+No patches removed.
+Writing repatched mesh to 0
+
+End
+
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2106                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f815a12b-20210902 OPENFOAM=2106
+Arch   : "LSB;label=32;scalar=64"
+Exec   : createPatch -overwrite
+Date   : Jan 02 2022
+Time   : 15:54:37
+Host   : ServaasComputer
+PID    : 12741
+I/O    : uncollated
+Case   : /home/servaas/OpenFOAM/servaas-v2106/porosityCoeff/porosityCoeff
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    fileModificationSkew 0;
+
+    maxMasterFileBufferSize 1e+09;
+
+    maxThreadFileBufferSize 1e+09;
+
+    mpiBufferSize (unregistered)
+Create polyMesh for time = 0
+
+Reading "system/createPatchDict"
+
+
+Doing topology modification to order faces.
+
+Not synchronising points.
+
+Removing patches with no faces in them.
+
+No patches removed.
+Writing repatched mesh to 0
+
+End
+
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2106                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f815a12b-20210902 OPENFOAM=2106
+Arch   : "LSB;label=32;scalar=64"
+Exec   : createPatch -overwrite
+Date   : Jan 02 2022
+Time   : 15:54:45
+Host   : ServaasComputer
+PID    : 12780
+I/O    : uncollated
+Case   : /home/servaas/OpenFOAM/servaas-v2106/porosityCoeff/porosityCoeff
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    fileModificationSkew 0;
+
+    maxMasterFileBufferSize 1e+09;
+
+    maxThreadFileBufferSize 1e+09;
+
+    mpiBufferSize (unregistered)
+Create polyMesh for time = 0
+
+Reading "system/createPatchDict"
+
+
+Doing topology modification to order faces.
+
+Not synchronising points.
+
+Removing patches with no faces in them.
+
+No patches removed.
+Writing repatched mesh to 0
+
+End
+
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2106                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f815a12b-20210902 OPENFOAM=2106
+Arch   : "LSB;label=32;scalar=64"
+Exec   : createPatch -overwrite
+Date   : Jan 02 2022
+Time   : 15:55:41
+Host   : ServaasComputer
+PID    : 12839
+I/O    : uncollated
+Case   : /home/servaas/OpenFOAM/servaas-v2106/porosityCoeff/porosityCoeff
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    fileModificationSkew 0;
+
+    maxMasterFileBufferSize 1e+09;
+
+    maxThreadFileBufferSize 1e+09;
+
+    mpiBufferSize (unregistered)
+Create polyMesh for time = 0
+
+Reading "system/createPatchDict"
+
+
+Doing topology modification to order faces.
+
+Not synchronising points.
+
+Removing patches with no faces in them.
+
+No patches removed.
+Writing repatched mesh to 0
+
+End
+
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2106                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f815a12b-20210902 OPENFOAM=2106
+Arch   : "LSB;label=32;scalar=64"
+Exec   : createPatch -overwrite
+Date   : Jan 02 2022
+Time   : 16:06:14
+Host   : ServaasComputer
+PID    : 13806
+I/O    : uncollated
+Case   : /home/servaas/OpenFOAM/servaas-v2106/porosityCoeff/porosityCoeff
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    fileModificationSkew 0;
+
+    maxMasterFileBufferSize 1e+09;
+
+    maxThreadFileBufferSize 1e+09;
+
+    mpiBufferSize (unregistered)
+Create polyMesh for time = 0
+
+Reading "system/createPatchDict"
+
+
+Doing topology modification to order faces.
+
+Not synchronising points.
+
+Removing patches with no faces in them.
+
+No patches removed.
+Writing repatched mesh to 0
+
+End
+
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2106                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f815a12b-20210902 OPENFOAM=2106
+Arch   : "LSB;label=32;scalar=64"
+Exec   : createPatch -overwrite
+Date   : Jan 09 2022
+Time   : 14:56:41
+Host   : ServaasComputer
+PID    : 731
+I/O    : uncollated
+Case   : /home/servaas/OpenFOAM/servaas-v2106/topoTest/topoTest
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    fileModificationSkew 0;
+
+    maxMasterFileBufferSize 1e+09;
+
+    maxThreadFileBufferSize 1e+09;
+
+    mpiBufferSize (unregistered)
+Create polyMesh for time = 0
+
+Reading "system/createPatchDict"
+
+
+Doing topology modification to order faces.
+
+Not synchronising points.
+
+Removing patches with no faces in them.
+
+No patches removed.
+Writing repatched mesh to 0
+
+End
+

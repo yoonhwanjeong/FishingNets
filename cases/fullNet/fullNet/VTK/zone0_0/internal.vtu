@@ -1,0 +1,45 @@
+<?xml version='1.0'?>
+<!-- case='topoTest' region='region0' time='0' index='0' -->
+<VTKFile type='UnstructuredGrid' version='0.1' byte_order='LittleEndian' header_type='UInt64'>
+  <UnstructuredGrid>
+    <FieldData>
+      <DataArray type='Float32' Name='TimeValue' NumberOfTuples='1' format='binary'>
+BAAAAAAAAAAAAAAA
+      </DataArray>
+    </FieldData>
+    <Piece NumberOfPoints='22' NumberOfCells='5'>
+      <Points>
+        <DataArray type='Float32' Name='Points' NumberOfComponents='3' format='binary'>
+CAEAAAAAAAAAAMA+zczMO2Zm5j4zM9M+zczMO2Zm5j4AAMA+ZmYmPWZm5j4zM9M+ZmYmPWZm5j4AAMA+mpmZPWZm5j4zM9M+mpmZPWZm5j4AAMA+ZmbmvJqZ+T4zM9M+ZmbmvJqZ+T4AAMA+zczMO5qZ+T4zM9M+zczMO5qZ+T4AAMA+ZmYmPZqZ+T4zM9M+ZmYmPZqZ+T4AAMA+mpmZPZqZ+T4zM9M+mpmZPZqZ+T4AAMA+ZmbmvGZmBj8zM9M+ZmbmvGZmBj8AAMA+zczMO2ZmBj8zM9M+zczMO2ZmBj8AAMA+ZmYmPWZmBj8zM9M+ZmYmPWZmBj8AAMA+mpmZPWZmBj8zM9M+mpmZPWZmBj8=
+        </DataArray>
+      </Points>
+      <Cells>
+        <DataArray type='Int32' Name='connectivity' format='binary'>
+oAAAAAAAAAABAAAACQAAAAsAAAADAAAAAAAAAAgAAAAKAAAAAgAAAAMAAAALAAAADQAAAAUAAAACAAAACgAAAAwAAAAEAAAABwAAAA8AAAARAAAACQAAAAYAAAAOAAAAEAAAAAgAAAAJAAAAEQAAABMAAAALAAAACAAAABAAAAASAAAACgAAAAsAAAATAAAAFQAAAA0AAAAKAAAAEgAAABQAAAAMAAAA
+        </DataArray>
+        <DataArray type='Int32' Name='offsets' format='binary'>
+FAAAAAAAAAAIAAAAEAAAABgAAAAgAAAAKAAAAA==
+        </DataArray>
+        <DataArray type='UInt8' Name='types' format='binary'>
+BQAAAAAAAAAMDAwMDA==
+        </DataArray>
+      </Cells>
+      <CellData>
+        <DataArray type='Float32' Name='p' format='binary'>
+FAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        </DataArray>
+        <DataArray type='Float32' Name='U' NumberOfComponents='3' format='binary'>
+PAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+        </DataArray>
+      </CellData>
+      <PointData>
+        <DataArray type='Float32' Name='p' format='binary'>
+WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        </DataArray>
+        <DataArray type='Float32' Name='U' NumberOfComponents='3' format='binary'>
+CAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+        </DataArray>
+      </PointData>
+    </Piece>
+  </UnstructuredGrid>
+</VTKFile>
