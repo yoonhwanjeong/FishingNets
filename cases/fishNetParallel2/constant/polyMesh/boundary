@@ -8,13 +8,14 @@
 FoamFile
 {
     version     2.0;
-    format      binary;
+    format      ascii;
     arch        "LSB;label=32;scalar=64";
     class       polyBoundaryMesh;
     location    "constant/polyMesh";
     object      boundary;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
 
 3
 (
@@ -24,18 +25,22 @@ FoamFile
         nFaces          2000;
         startFace       880000;
     }
+
     outlet
     {
         type            patch;
         nFaces          2000;
         startFace       882000;
     }
+
     boundaries
     {
         type            patch;
         nFaces          36000;
         startFace       884000;
     }
+
 )
+
 
 // ************************************************************************* //
