@@ -8,7 +8,7 @@
 FoamFile
 {
     version     2.0;
-    format      binary;
+    format      ascii;
     arch        "LSB;label=32;scalar=64";
     class       volVectorField;
     location    "0";

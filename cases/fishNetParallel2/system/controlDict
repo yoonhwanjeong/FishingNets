@@ -20,7 +20,7 @@ writeInterval	10;
 writePrecision	7;
 runTimeModifiable	true;
 compression	uncompressed;
-writeFormat	binary;
+writeFormat	ascii;
 libs	("libfvMotionSolvers.dll" "libturbulenceModels.dll" "libturbulenceModelSchemes.dll" "libfvOptions.dll");
 OptimisationSwitches
 {
