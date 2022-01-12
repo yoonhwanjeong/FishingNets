@@ -39,12 +39,12 @@
 /applications/*/Make/*/
 
 # Cases
-/cases/*/*/
-!/cases/*/0
-!/cases/*/constant
-!/cases/*/system
-!/cases/*/templates
-!/cases/*/280 #Result file for fishNetParallel2 (needed)
+# /cases/*/*/
+# !/cases/*/0
+# !/cases/*/constant
+# !/cases/*/system
+# !/cases/*/templates
+# !/cases/*/280 #Result file for fishNetParallel2 (needed)
 /cases/*/*.log
 
 # cases/porosityCoeff
