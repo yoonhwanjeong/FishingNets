@@ -1,0 +1,94 @@
+FoamFile
+{
+	version	2.0;
+	format	ascii;
+	class	dictionary;
+	location	"system";
+	object	fvOptions;
+}porosityInzone0
+{
+	active	true;
+	type	explicitPorositySource;
+	explicitPorositySourceCoeffs
+	{
+		type	DarcyForchheimer;
+		DarcyForchheimerCoeffs
+		{
+			d	(0.0 0.0 0.0);
+			f	(5.880396e+00 1.723564e+00 1.723564e+00);
+			coordinateSystem
+			{
+				type	cartesian;
+				origin	(0.0 0.0 0.0);
+				coordinateRotation
+				{
+					type	axesRotation;
+					e1	( -1.000000e+00 0.000000e+00 0.000000e+00 );
+					e2	( 0.000000e+00 1.000000e+00 0.000000e+00 );
+				}
+			}
+			rho	rho;
+			mu	mu;
+		}
+		selectionMode	cellZone;
+		cellZone	zone0;
+	}
+}
+porosityInzone1
+{
+	active	true;
+	type	explicitPorositySource;
+	explicitPorositySourceCoeffs
+	{
+		type	DarcyForchheimer;
+		DarcyForchheimerCoeffs
+		{
+			d	(0.0 0.0 0.0);
+			f	(4.317993e+00 1.265619e+00 1.265619e+00);
+			coordinateSystem
+			{
+				type	cartesian;
+				origin	(0.0 0.0 0.0);
+				coordinateRotation
+				{
+					type	axesRotation;
+					e1	( -1.000000e+00 0.000000e+00 -1.000000e+00 );
+					e2	( 0.000000e+00 1.000000e+00 0.000000e+00 );
+				}
+			}
+			rho	rho;
+			mu	mu;
+		}
+		selectionMode	cellZone;
+		cellZone	zone1;
+	}
+}
+porosityInzone2
+{
+	active	true;
+	type	explicitPorositySource;
+	explicitPorositySourceCoeffs
+	{
+		type	DarcyForchheimer;
+		DarcyForchheimerCoeffs
+		{
+			d	(0.0 0.0 0.0);
+			f	(3.721188e+00 1.090693e+00 1.090693e+00);
+			coordinateSystem
+			{
+				type	cartesian;
+				origin	(0.0 0.0 0.0);
+				coordinateRotation
+				{
+					type	axesRotation;
+					e1	( 0.000000e+00 0.000000e+00 -1.000000e+00 );
+					e2	( 0.000000e+00 1.000000e+00 0.000000e+00 );
+				}
+			}
+			rho	rho;
+			mu	mu;
+		}
+		selectionMode	cellZone;
+		cellZone	zone2;
+	}
+}

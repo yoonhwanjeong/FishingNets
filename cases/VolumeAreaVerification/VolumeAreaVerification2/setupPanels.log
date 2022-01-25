@@ -1,0 +1,9 @@
+finding panels
+modifying topoSetDict
+running topoSet in SERIAL
+modifying geometricCalcDict
+calculating geometrics
+modifying fvOptionsLoc
+Setup panel zone0 0 with: e1 = (-1.0, 0.0, 0.0) e2 = (0.0, 1.0, 0.0) projDir = (-1.0, 0.0, 0.0) area = 0.826281 volume = 0.04172719 C1 = 5.880396e+00 C1 = 1.723564e+00 C1 = 1.723564e+00
+Setup panel zone1 1 with: e1 = (-1.0, 0.0, -1.0) e2 = (0.0, 1.0, 0.0) projDir = (-1.0, 0.0, -1.0) area = 0.8764033 volume = 0.06027261 C1 = 4.317993e+00 C1 = 1.265619e+00 C1 = 1.265619e+00
+Setup panel zone2 2 with: e1 = (0.0, 0.0, -1.0) e2 = (0.0, 1.0, 0.0) projDir = (0.0, 0.0, -1.0) area = 0.826281 volume = 0.06593926 C1 = 3.721188e+00 C1 = 1.090693e+00 C1 = 1.090693e+00

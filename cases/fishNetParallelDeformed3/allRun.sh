@@ -6,6 +6,7 @@ rm *.log log.* processor* -rfv #Clean all logs
 ls | grep -P "[1-9]" | xargs -d"\n" rm -rv #Remove all previous results
 
 sed -i "s/^startFrom	latestTime;*/startFrom	startTime;/" $PWD/system/controlDict #edit controlDict for simpleFoam to run
+sed -i "s/^writeFormat	ascii;*/writeFormat	binary;/" $PWD/system/controlDict
 
 if [[ $newMesh != "0" ]]; then
 	echo "Deleting old mesh"
@@ -33,6 +34,7 @@ echo "simpleFoam"
 unbuffer simpleFoam |& tee simpleFoam.log #Run simpleFoam
 
 sed -i "s/^startFrom	startTime;.*/startFrom	latestTime;/" $PWD/system/controlDict #edit controlDict for outputLog to run
+sed -i "s/^writeFormat	binary;*/writeFormat	ascii;/" $PWD/system/controlDict
 
 outputU 1>outputU.log
 

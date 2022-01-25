@@ -1,0 +1,12 @@
+
+
+--> FOAM FATAL IO ERROR: (openfoam-2106)
+Expected integral (int32), found non-integral value on line 20: double 22.5
+
+file: /home/servaas/OpenFOAM/servaas-v2106/VolumeAreaVerification/system/blockMeshDict.blocks at line 20.
+
+    From Foam::Istream& Foam::operator>>(Foam::Istream&, int32_t&)
+    in file primitives/ints/int32/int32IO.C at line 150.
+
+FOAM exiting
+

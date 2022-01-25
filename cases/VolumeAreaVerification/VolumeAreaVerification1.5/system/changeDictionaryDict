@@ -1,0 +1,47 @@
+FoamFile
+{
+	version	2.0;
+	format	binary;
+	class	dictionary;
+	location	"system";
+	object	changeDictionaryDict;
+}
+p
+{
+	boundaryField
+	{
+		inlet
+		{
+			type	zeroGradient;
+		}
+		outlet
+		{
+			type	zeroGradient;
+		}
+		boundaries
+		{
+			type	freestreamPressure;
+			freestreamValue	uniform 0.0;
+		}
+	}
+}
+U
+{
+	boundaryField
+	{
+		inlet
+		{
+			type	surfaceNormalFixedValue;
+			refValue	uniform -1.0;
+		}
+		outlet
+		{
+			type	zeroGradient;
+		}
+		boundaries
+		{
+			type	freestreamVelocity;
+			freestreamValue	uniform (1.0 0.0 0.0);
+		}
+	}
+}
