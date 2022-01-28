@@ -42,16 +42,13 @@ Description
 
 int main(int argc, char *argv[])
 {
-    #include "postProcess.H"
-
-    //argList::validArgs.append("projDirX");
-    //argList::validArgs.append("projDirY");
-    //argList::validArgs.append("projDirZ");
+    #include "postProcess.H" //This include my throw errors on conventional compilers but wmake should be able to handle it
 
     #include "setRootCaseLists.H"
     #include "createTime.H"
     #include "createMesh.H"
 
+    //This creates a dictionary to interface with the geometricCalcDict in the case files that contains the panel normals
     IOdictionary ioDictObj
     (
     IOobject
@@ -70,13 +67,9 @@ int main(int argc, char *argv[])
 
     List<bool> outsideFaces(faceAreas.size(), false);
 
-    //const scalar x(readScalar(IStringStream(args.args()[1])()));
-    //const scalar y(readScalar(IStringStream(args.args()[2])()));
-    //const scalar z(readScalar(IStringStream(args.args()[3])()));
-
     Info << "Calculating zone volumes and areas:" << endl;
-    //Info << "Area projection direction along " << projDir << nl << endl;
 
+    //loop over all cellzones (thus the porous zones)
     forAll(mesh.cellZones(), cellZoneID)
     {
         //Setup
@@ -85,18 +78,17 @@ int main(int argc, char *argv[])
         const cellZoneMesh &zoneMesh = zone.zoneMesh();
         const labelList &cellsZone = zoneMesh[cellZoneID];
 
-        //Read geometricCalcDict
+        //Read geometricCalcDict and get the projection direction for the current porous zone
         vector projDir (vector(ioDictObj.subDict(zoneName).lookup("e1")));
         projDir.normalise();
 
-        //Calculate volume
+        //Calculate the volume of the zone by summing the volumes of all cells
         scalar cellZoneVol(0);
         forAll(cellsZone, cI)
         {
             cellZoneVol += mesh.V()[cellsZone[cI]];
         }
 
-        //const labelList& cellLabels = mesh_.cellZones()[zoneI];
         outsideFaces = false;
 
         // mark all faces that are NOT internal to the cellZone:
@@ -120,25 +112,27 @@ int main(int argc, char *argv[])
             }
         }
 
-        // now calculate the area
+        //Calculate the area by summing the areas of external faces multiplied with the dots between the panel normal and the face normal
+        //A_proj = 1/2*SUM(A_i*DOT(FaceNormal_i, ProjectionDirection))
         scalar zoneOutsideArea = 0;
         scalar zouneOutsideProjectedArea = 0;
         label  zoneOutsideNFaces = 0;
 
         forAll(outsideFaces, faceI)
         {
-            if (outsideFaces[faceI])
+            if (outsideFaces[faceI]) //If face is on the outside surface
             {
-                vector faceNormal = mesh.Sf()[faceI]/mesh.magSf()[faceI]; //Normalized
-                scalar projFace = mag(faceNormal & projDir); //Inner product 
+                vector faceNormal = mesh.Sf()[faceI]/mesh.magSf()[faceI]; //Normalized normal of the face
+                scalar projFace = mag(faceNormal & projDir); //Inner product
                 zoneOutsideArea += mag(faceAreas[faceI]);
                 zouneOutsideProjectedArea += mag(faceAreas[faceI])*projFace;
-                zoneOutsideNFaces++;
+                zoneOutsideNFaces++; //count how many external faces there are for info
             }
         }
 
-        zouneOutsideProjectedArea *= 0.5; //Select only the windward side of the projected area
+        zouneOutsideProjectedArea *= 0.5; //Select only the windward side of the projected area by multiplying entire projected area by 2
 
+        //Print results to console
         Info << "zoneName = " << zoneName 
         << ": cellZoneVol = " << cellZoneVol 
         << "\\" 

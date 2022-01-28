@@ -42,11 +42,7 @@ Description
 
 int main(int argc, char *argv[])
 {
-    #include "postProcess.H"
-
-    //argList::validArgs.append("projDirX");
-    //argList::validArgs.append("projDirY");
-    //argList::validArgs.append("projDirZ");
+    #include "postProcess.H" //This include my throw errors on conventional compilers but wmake should be able to handle it
 
     #include "addCheckCaseOptions.H"
     #include "setRootCaseLists.H"
@@ -59,8 +55,7 @@ int main(int argc, char *argv[])
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
     Info<< "STARTING OUTPUT AT Time = " << runTime.timeName() << nl << endl;
 
-    //const volVectorField& U = U;
-
+    //For all cells output vel_x vel_y vel_z cellcenter_x cellcenter_y cellcenter_z pressure
     forAll(U,Ui)
     {
        Info << U[Ui][0] << " " << U[Ui][1] << " " << U[Ui][2] << " "
@@ -68,12 +63,6 @@ int main(int argc, char *argv[])
        << p[Ui] 
         <<  endl;
     }
-
-    /*forAll(mesh.cellCentres(), cellZoneID)
-    {  
-
-
-    }*/
 
     Info<< nl << "End" << endl;
 
