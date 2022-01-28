@@ -1,0 +1,72 @@
+FoamFile
+{
+	class	dictionary;
+	format	ascii;
+	location	system;
+	object	controlDict;
+	version	2.0;
+}
+application	simpleFoam;
+deltaT	1;
+endTime	500;
+purgeWrite	0;
+startFrom	latestTime;
+startTime	0;
+stopAt	endTime;
+timeFormat	general;
+timePrecision	6;
+writeControl	timeStep;
+writeInterval	10;
+writePrecision	7;
+runTimeModifiable	true;
+compression	uncompressed;
+writeFormat	ascii;
+libs	("libfvMotionSolvers.dll" "libturbulenceModels.dll" "libturbulenceModelSchemes.dll" "libfvOptions.dll");
+functions
+{
+	forceMonitorOnPorosity
+	{
+		type	forces;
+		functionObjectLibs ("libforces.so"); 
+		porosity true;
+		patches ( );    
+		rhoInf 1.0;
+		magUInf	1;
+		U	U;
+		p	p;
+		rho	rhoInf;
+		CofR (0 0 0);
+		outputControl   timeStep;
+		outputInterval  1;
+	}
+	
+	forceCoefficienOnPorosity
+	{
+		type	forceCoeffs;
+		porosity true;
+		U	U;
+		Aref	1.384934;
+		dragDir	(1 0 0);
+		lRef	0.6;
+		liftDir	(0 1 0);
+		magUInf	1;
+		pitchAxis	(0 0 1);
+		CofR	(0 0 0);
+		enabled	true;
+		porosity true;
+		log	true;
+		patches	();
+		rhoInf	1.0;
+		libs	("libforces.dll");
+		p	p;
+		rho	rhoInf;
+	}
+}
+OptimisationSwitches
+{
+	fileHandler	uncollated;
+	fileModificationSkew	0;
+	maxMasterFileBufferSize	1.0E9;
+	maxThreadFileBufferSize	1.0E9;
+	mpiBufferSize	200000000;
+}
