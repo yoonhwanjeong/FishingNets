@@ -1,7 +1,6 @@
-# FishingNets
+# FishingNets (This documentation will be expanded upon in the following week)
 
-TU Delft TW3725TU Final Minor Project of group 10 on the simulation of fishing nets.
-
+TU Delft TW3725TU Final Minor Project of group 10 on the simulation of fishing nets. 
 ![Heading image](https://drive.google.com/uc?export=view&id=1lxpYfWofaIt7EmDJwkr9ZyjKfm6ogy9h)
 
 ## Features
