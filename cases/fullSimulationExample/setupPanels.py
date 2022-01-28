@@ -24,6 +24,14 @@ normalPath = "constant/triSurface/Normals.csv"
 stlPath = "constant/triSurface/STL_Files"
 
 class Panel():
+	"""
+	Panel that contains all info on a net panel / porous zone
+
+	Contains:
+	Normals (e1 and e2)
+	Projection directions for area calculation
+	Forchheimer coefficients
+	"""
 	def __init__(self, zoneName, stlName, Sn, Cd, e1 = None, e2 = None, AoA = None, projDir = None):
 		self.zoneName = zoneName
 		self.stlName = stlName
@@ -40,13 +48,17 @@ class Panel():
 		self.Sn = Sn
 		self.Cd = Cd
 
-		#If no explicit projection direction is given, the reference area is calculated using the e1 direciton
+		#If no explicit projection direction is given, the reference area is calculated using the e1 direciton. THIS CURRENTLY ALWAYS SHOULD HAPPEN.
+		#If an explicit projection direction is given Convex Polygon Assumption breaks down!!
 		if projDir:
 			self.projDir = projDir
 		else:
 			self.projDir = self.e1
 
 	def setupCoeff(self):
+		"""
+		Prepare calculation of Forchheimer coefficients 
+		"""
 		self.area, self.volume = geometrics.getGeometrics(self.zoneName)
 
 		self.a = 1.45
@@ -61,7 +73,13 @@ class Panel():
 		return
 
 	def calcCs(self):
-		if self.volume == 0 or self.S1 == 0 or self.S2 == 0:
+		"""
+		Calculate Forchheimer coefficients
+		"""
+
+		#Sometimes the porous zone has no volume or area due to being assimilated bo others in the reconstruction of the parallel mesh after topoSet is run in parallel.
+		#This if avoids divisions by zero in that case
+		if self.volume == 0 or self.S1 == 0 or self.S2 == 0: 
 			self.C1 = "0"
 			self.C2 = "0"
 			self.C3 = "0"
@@ -72,18 +90,25 @@ class Panel():
 		return
 
 class Geometrics():
+	"""
+	Runs geometricCalc to obtain volumes and areas of porous zones
+	"""
 	def __init__(self) -> None:
 		self.prepareGeometrics()
 
 	def prepareGeometrics(self):
+		#Run geometricCalc and pipe output into log file
 		with open(f"geometricCalc.log","wb") as out, open(f"geometricCalcError.log","wb") as err:
 			process = subprocess.Popen(['geometricCalc'],
 										stdout=out, 
 										stderr=err,
 										shell=True)
-		process.wait()
+		process.wait() #Blocking wait
+
+		#Read all lines from log file into memory
 		with open(f"geometricCalc.log","r") as geometricOut:
-			self.geomStr = geometricOut.read().split('\n')
+			self.geomStr = geometricOut.read().split('\n') #Split log output on Linux endline char
+
 		return
 
 	def getGeometrics(self, zoneName):
@@ -99,6 +124,12 @@ class Geometrics():
 		return number
 
 def addPanelTo(fileLoc, templateLoc, panel):
+	"""
+	1. Edits relevant preset strings in templateLoc to values from panel
+	2. Pastes edited template into fileLoc
+
+	Checks for different preset strings to replace if template is fvOptions
+	"""
 	with open(templateLoc, 'r') as templateFile:
 		templateData = templateFile.read()
 	
@@ -116,12 +147,18 @@ def addPanelTo(fileLoc, templateLoc, panel):
 		file.write(templateData)
 
 def overwrite(fileLoc, templateLoc):
+	"""
+	Overwrite file with template
+	"""
 	with open(templateLoc, 'r') as templateFile:
 		templateData = templateFile.read()
 	with open(fileLoc, 'w') as file:
 		file.write(templateData)
 
 def addTo(fileLoc, templateLoc):
+	"""
+	Append template to file 
+	"""
 	with open(templateLoc, 'r') as templateFile:
 		templateData = templateFile.read()
 	with open(fileLoc, 'a') as file:
@@ -129,6 +166,7 @@ def addTo(fileLoc, templateLoc):
 
 #-------------------------------------------------------------------------------------------------------#
 
+#Decide to run topoSet in parallel or not from arguments from shell script
 topoSetRun = True
 topoSetParallel = True
 if len(sys.argv) > 1:
@@ -143,12 +181,11 @@ stlNames = []
 
 for root, dirs, files in os.walk(stlPath):
 	for file in files:
-		#append the file name to the list
-		#stlList.append(os.path.join(root,file))
-		stlNames.append(int(file.split(".")[0]))
+		stlNames.append(int(file.split(".")[0])) #take name from [name, stl]
 		
 stlNames = sorted(stlNames)
 
+#Read normals from Normals.csv for every stl
 e1s = []
 e2s = []
 with open(normalPath, newline='') as csvfile:
@@ -159,7 +196,7 @@ with open(normalPath, newline='') as csvfile:
 		rows.append(row)
 
 	for stl in stlNames:
-		desiredrow = rows[int(stl) + 1] 
+		desiredrow = rows[int(stl) + 1] #select the corresponding row in Normals.csv for every stl. stl 0 -> line 1 in Normals.csv
 		try:
 			e1s.append((float(desiredrow[0]),float(desiredrow[1]),float(desiredrow[2])))
 			e2s.append((float(desiredrow[3]),float(desiredrow[4]),float(desiredrow[5])))
@@ -168,20 +205,20 @@ with open(normalPath, newline='') as csvfile:
 
 panels = []
 for index, stl in enumerate(stlNames):
-#Add panels and their properties here: name must currently be the same as stl name
+	#Add panels and their properties to panels list
 	zoneName = f"zone{stl}"
 	stlName = f"{stl}"
 	panels.append(Panel(zoneName, stlName, 0.128, 1.6, e1 = e1s[index], e2 = e2s[index]))
 
 print("modifying topoSetDict")
-#Prepare topoSetDict
+#Prepare topoSetDict with top template
 overwrite(topoSetDictLoc, topoTopLoc)
 
 #Configure topoSetDictLoc for all panels
 for panel in panels:
 	addPanelTo(topoSetDictLoc, topoLoc, panel)
 
-#finalize topoSetDict
+#finalize topoSetDict with bottom template
 addTo(topoSetDictLoc, topoBottomLoc)
 
 if topoSetRun:
@@ -193,7 +230,7 @@ if topoSetRun:
 										stdout=out, 
 										stderr=err, 
 										shell = True)
-			process.wait()
+			process.wait() #Blocking wait
 	else:
 		print("running topoSet in SERIAL")
 		#run topoSetDict
@@ -202,22 +239,23 @@ if topoSetRun:
 										stdout=out, 
 										stderr=err, 
 										shell = True)
-			process.wait()
+			process.wait() #Blocking wait
 
 
 print("modifying geometricCalcDict")
-#Prepare geometricCalcDict
+#Prepare geometricCalcDict with top template
 overwrite(geometricCalcDictLoc, geometricTopLoc)
 
-#Configure geometricCalcDictLoc for all panels
+#Configure geometricCalcDictLoc for all panels. This writes all the panel normals to geometricCalcDict
 for panel in panels:
 	addPanelTo(geometricCalcDictLoc, geometricLoc, panel)
 
 print("calculating geometrics")
+#This runs geometricCalc to obtain volumes and areas from the porous zones
 geometrics = Geometrics()
 
 print("modifying fvOptionsLoc")
-#Prepare fvOptions
+#Prepare fvOptions with top template
 overwrite(fvOptionsLoc, darcyTopLoc)
 
 #Configure fvOptions for all panels
