@@ -1,6 +1,0 @@
-decomposePar
-Running decomposePar on /home/servaas/OpenFOAM/servaas-v2106/VolumeAreaVerification
-topoSet
-Running topoSet (4 processes) on /home/servaas/OpenFOAM/servaas-v2106/VolumeAreaVerification 
-reconstructParMesh
-Running reconstructParMesh on /home/servaas/OpenFOAM/servaas-v2106/VolumeAreaVerification
