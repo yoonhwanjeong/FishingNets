@@ -1,3 +1,0 @@
-volumeCalc.C
-
-EXE = $(FOAM_USER_APPBIN)/volumeCalc
